@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+
+var path = require('path');
+
+var server = require('../hotDevServer');
+var configureHot = require('../configureHot');
+
+var src = process.argv[2] || '.';
+var entryFile = path.join(process.cwd(), src, path.extname(src) === '.js' ? '' : 'index.js');
+
+// TODO: command line arg --port
+var port = 8080;
+
+var config = configureHot(port, entryFile);
+
+server(config, port, entryFile);
