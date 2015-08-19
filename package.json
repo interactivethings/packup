@@ -1,35 +1,33 @@
 {
-  "name": "ixt-heatpack",
-  "version": "0.6.0",
-  "description": "",
-  "main": "heatpack",
-  "private": true,
+  "name": "packup",
+  "version": "1.0.0",
+  "description": "A no-config dev server for modern web apps",
+  "keywords": [
+    "react",
+    "webpack",
+    "server",
+    "hot",
+    "babel"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
-    "node": ">= 0.10.35 < 0.12"
+    "node": ">= 0.12"
   },
   "bin": {
-    "heatpack": "./heatpack"
+    "packup": "./bin/packup"
   },
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/interactivethings/app-starterkit.git"
+    "url": "https://bitbucket.org/interactivethings/packup.git"
   },
   "author": "Jeremy Stucki",
   "license": "BSD",
   "dependencies": {
-  },
-  "devDependencies": {
     "babel": "^5.5.6",
     "babel-core": "^5.5.6",
-    "babel-eslint": "^3.1.15",
-    "babel-loader": "^5.0.0",
     "css-loader": "^0.12.0",
-    "eslint": "^0.23.0",
-    "eslint-config-interactivethings": "^1.0.0",
-    "eslint-plugin-react": "^2.5.0",
     "file-loader": "^0.8.1",
     "react": "^0.13.3",
     "react-hot-loader": "^1.2.5",
@@ -37,5 +35,12 @@
     "url-loader": "^0.5.5",
     "webpack": "^1.8.9",
     "webpack-dev-server": "^1.6.5"
+  },
+  "devDependencies": {
+    "babel-eslint": "^3.1.15",
+    "babel-loader": "^5.0.0",
+    "eslint": "^0.23.0",
+    "eslint-config-interactivethings": "^1.0.0",
+    "eslint-plugin-react": "^2.5.0"
   }
 }
