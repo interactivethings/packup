@@ -40,9 +40,5 @@
     "webpack-dev-server": "^1.6.5"
   },
   "devDependencies": {
-    "babel-eslint": "^4.0.10",
-    "eslint": "^1.2.0",
-    "eslint-config-interactivethings": "^1.0.0",
-    "eslint-plugin-react": "^3.2.3"
   }
 }
