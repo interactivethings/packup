@@ -7,7 +7,16 @@ module.exports = function server(config) {
   new WebpackDevServer(webpack(config), {
     publicPath: config.output.publicPath,
     contentBase: config.output.contentBase,
-    stats: { colors: true, cached: false },
+    stats: {
+      assets: true,
+      chunkModules: false,
+      chunkOrigins: false,
+      chunks: true,
+      colors: true,
+      hash: false,
+      timings: false,
+      version: false
+    },
     hot: true,
     historyApiFallback: true
   }).listen(config.port, 'localhost', function (err, result) {

@@ -1,7 +1,7 @@
 var server = require('./hotDevServer');
-var configureHot = require('./configureHot');
+var configure = require('./configure');
 
 module.exports = function packup(port, entryFile) {
-  var config = configureHot(port, entryFile);
+  var config = configure(port, entryFile);
   server(config, port, entryFile);
 };
