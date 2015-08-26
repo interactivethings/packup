@@ -18,7 +18,7 @@ module.exports = function(options) {
       extensions: ['', '.js', '.json', '.css', '.scss']
     },
     resolveLoader: {
-      modulesDirectories: [
+      root: [
         path.resolve(__dirname, 'node_modules')
       ]
     },
