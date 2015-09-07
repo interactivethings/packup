@@ -18,9 +18,7 @@ module.exports = function(options) {
       extensions: ['', '.js', '.json', '.css', '.scss']
     },
     resolveLoader: {
-      root: [
-        path.resolve(__dirname, 'node_modules')
-      ]
+      fallback: path.resolve(__dirname, 'node_modules')
     },
     
     // Packup-specific options, not directly used by webpack
