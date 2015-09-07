@@ -20,7 +20,6 @@ module.exports = function(options) {
     devtool: '#eval-source-map',
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
-      new webpack.NoErrorsPlugin(),
       new webpack.DefinePlugin(options.globals),
       new HtmlWebpackPlugin({
         title: options.package.name,
