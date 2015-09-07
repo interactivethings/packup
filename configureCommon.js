@@ -14,8 +14,7 @@ module.exports = function(options) {
   return {
     resolve: {
       root: options.root,
-      fallback: path.resolve(__dirname, 'node_modules'),
-      extensions: ['', '.js', '.json', '.css', '.scss']
+      fallback: path.resolve(__dirname, 'node_modules')
     },
     resolveLoader: {
       fallback: path.resolve(__dirname, 'node_modules')
