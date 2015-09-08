@@ -1,3 +1,4 @@
 import React from 'react';
+import Two from 'components/Two';
 
-React.render(<div>Hello from two.js</div>, document.getElementById('two'));
+React.render(<Two />, document.getElementById('two'));

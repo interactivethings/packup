@@ -1,3 +1,4 @@
 import React from 'react';
+import One from 'components/One';
 
-React.render(<div>Hello from one.js</div>, document.getElementById('one'));
+React.render(<One />, document.getElementById('one'));
