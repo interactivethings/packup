@@ -19,7 +19,7 @@ module.exports = function server(config) {
     },
     hot: true,
     historyApiFallback: true
-  }).listen(config.port, 'localhost', function (err, result) {
+  }).listen(config.port, '0.0.0.0', function (err, result) {
     if (err) {
       console.error(err);
     }
