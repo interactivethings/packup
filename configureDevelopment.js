@@ -4,18 +4,18 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = function(options) {
-  var entry = {};
+  var entry = {
+    'dev-server': 'webpack-dev-server/client?http://localhost:' + options.port
+  };
   if (typeof options.entry === 'object') {
     Object.keys(options.entry).forEach(function(key) {
       entry[key] = [
-        'webpack-dev-server/client?http://localhost:' + options.port,
         'webpack/hot/only-dev-server',
         options.entry[key]
       ];
     });
   } else {
     entry.app = [
-      'webpack-dev-server/client?http://localhost:' + options.port,
       'webpack/hot/only-dev-server',
       options.entry
     ];
