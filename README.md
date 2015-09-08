@@ -4,8 +4,21 @@ Work in progress. Most of the things below are not yet implemented.
 
 ## Options
 
-- `--port`: Specify a server port
+- `--port`: Specify a server port (Default: any free port starting from 8080)
 - `--config`: Use a configuration file
+
+### Configuration file
+
+Through the `--config` option, a configuration file can be supplied. Currently only the `entry` key is supported to specify multiple entry files. For example:
+
+```js
+module.exports = {
+  entry: {
+    app: './index',
+    foo: './foo'
+  }
+}
+```
 
 ## Goals
 
