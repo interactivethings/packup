@@ -23,7 +23,7 @@ module.exports = function(options) {
       new webpack.DefinePlugin(options.globals),
       new HtmlWebpackPlugin({
         title: options.package.name,
-        template: fs.existsSync(path.resolve(options.root, 'index.html')) ? path.resolve(options.root, 'index.html') :'index.html',
+        template: fs.existsSync(path.resolve(options.root, 'index.html')) ? path.resolve(options.root, 'index.html') : path.resolve(__dirname, 'index.html'),
         inject: 'body',
         description: options.package.description,
         version: options.package.version
