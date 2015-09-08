@@ -4,15 +4,28 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = function(options) {
-  return {
-    entry: [
+  var entry = {};
+  if (typeof options.entry === 'object') {
+    Object.keys(options.entry).forEach(function(key) {
+      entry[key] = [
+        'webpack-dev-server/client?http://localhost:' + options.port,
+        'webpack/hot/only-dev-server',
+        options.entry[key]
+      ];
+    });
+  } else {
+    entry.app = [
       'webpack-dev-server/client?http://localhost:' + options.port,
       'webpack/hot/only-dev-server',
-      options.entryFile
-    ],
+      options.entry
+    ];
+  }
+
+  return {
+    entry: entry,
     output: {
       path: path.resolve(options.root, 'build'),
-      filename: 'app.js',
+      filename: '[name].js',
       pathinfo: true,
       // contentBase: fs.existsSync(path.resolve(options.root, 'index.html')) ? path.resolve(options.root) : __dirname
       contentBase: path.resolve(options.root)

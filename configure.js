@@ -6,7 +6,7 @@ var values = require('object-values');
 var configureCommon = require('./configureCommon');
 var configureDevelopment = require('./configureDevelopment');
 
-module.exports = function(port, entryFile) {
+module.exports = function(port, entryFile, config) {
   var env = process.env.NODE_ENV || 'development';
   var rootDir = path.dirname(entryFile);
   var packagePath = path.resolve(rootDir, './package.json');
@@ -18,7 +18,7 @@ module.exports = function(port, entryFile) {
     },
     package: fs.existsSync(packagePath) ? require(packagePath) : {name: 'packup-app', title: 'Packup-App', version: '0.0.0', description: '', dependencies: {}},
     root: rootDir,
-    entryFile: entryFile,
+    entry: config.entry || entryFile,
     port: port
   }
 

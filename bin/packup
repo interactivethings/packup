@@ -1,24 +1,27 @@
 #!/usr/bin/env node
 
 var path = require('path');
+var fs = require('fs');
 var minimist = require('minimist');
 var portfinder = require('portfinder');
 var packup = require('../index');
 
 var argv = minimist(process.argv.slice(2), {
   alias: {
-    p: ['port']
+    p: ['port'],
+    c: ['config']
   }
 });
 
 var src = argv._[0] || '.';
+var config = argv.config && fs.existsSync(argv.config) ? require(argv.config) : {};
 var entryFile = path.join(process.cwd(), src, path.extname(src) === '.js' ? '' : 'index.js');
 
 if (argv.port) {
-  packup(argv.port, entryFile);
+  packup(argv.port, entryFile, config);
 } else {
   portfinder.getPort({port: 8080, host: '127.0.0.1'}, function(err, port) {
     if (err) { throw err; }
-    packup(port, entryFile);
+    packup(port, entryFile, config);
   });
 }
