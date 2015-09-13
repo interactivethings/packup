@@ -32,7 +32,7 @@ module.exports = function server(config) {
   app.get('*', function(req, res, next) {
     var ext = path.extname(req.url);
     if ((ext === '' || ext === '.html') && req.url !== '/') {
-      req.pipe(request(req.protocol + '://' + req.hostname + ':' + req.port + '/index.html')).pipe(res);
+      req.pipe(request(req.protocol + '://' + req.hostname + ':' + config.port + '/index.html')).pipe(res);
     } else {
       next();
     }
