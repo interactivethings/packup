@@ -16,7 +16,7 @@ module.exports = function(port, entryFile, config) {
       __DEV__: (env === 'development'),
       'process.env.NODE_ENV': JSON.stringify(env)
     },
-    package: fs.existsSync(packagePath) ? require(packagePath) : {name: 'packup-app', title: 'Packup-App', version: '0.0.0', description: '', dependencies: {}},
+    package: fs.existsSync(packagePath) ? require(packagePath) : {name: path.basename(rootDir), title: 'Packup-App', version: '0.0.0', description: '', dependencies: {}},
     root: rootDir,
     entry: config.entry || entryFile,
     port: port
