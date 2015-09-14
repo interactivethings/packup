@@ -1,6 +1,6 @@
 # Packup
 
-Work in progress. Most of the things below are not yet implemented.
+Work in progress.
 
 ## Options
 
