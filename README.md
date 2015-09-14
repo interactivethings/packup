@@ -29,6 +29,7 @@ No configuration needed.
 - Provide a hot-reloading enabled development server without the boilerplate
 - Provide a default set of webpack loaders
 - Provide a default set of NPM packages (less is more)
+- Always route all routes to the app, to enable HTML5 pushState routing
 
 ### Advanced usage
 
@@ -37,10 +38,6 @@ Enable some or complete configuration.
 - Allow extension of default webpack config
 - Allow use of a completely separate webpack config
 - Allow easy replacement through webpack itself
-
-## Nice-to-have
-
-- Always route all routes to the app, to enable HTML5 pushState routing
 
 ## Global install (good for quick no-config experiments)
 
