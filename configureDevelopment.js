@@ -4,19 +4,17 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = function(options) {
-  var entry = {
-    'dev-server': 'webpack-dev-server/client?http://localhost:' + options.port
-  };
+  var entry = {};
   if (typeof options.entry === 'object') {
     Object.keys(options.entry).forEach(function(key) {
       entry[key] = [
-        'webpack/hot/only-dev-server',
+        'webpack-hot-middleware/client',
         options.entry[key]
       ];
     });
   } else {
     entry.app = [
-      'webpack/hot/only-dev-server',
+      'webpack-hot-middleware/client',
       options.entry
     ];
   }
@@ -27,6 +25,7 @@ module.exports = function(options) {
       path: path.resolve(options.root, 'build'),
       filename: '[name].js',
       pathinfo: true,
+      publicPath: '/',
       // contentBase: fs.existsSync(path.resolve(options.root, 'index.html')) ? path.resolve(options.root) : __dirname
       contentBase: path.resolve(options.root)
     },
