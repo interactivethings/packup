@@ -14,7 +14,8 @@ var argv = minimist(process.argv.slice(2), {
 });
 
 var src = argv._[0] || '.';
-var config = argv.config && fs.existsSync(argv.config) ? require(argv.config) : {};
+
+var config = argv.config && fs.existsSync(argv.config) ? require(path.join(process.cwd(), argv.config)) : {};
 var entryFile = path.join(process.cwd(), src, path.extname(src) === '.js' ? '' : 'index.js');
 
 if (argv.port) {
