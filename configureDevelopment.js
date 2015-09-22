@@ -45,7 +45,21 @@ module.exports = function(options) {
     port: options.port,
     loaders: {
       js: {
-        loaders: ['react-hot', 'babel']
+        loader: 'babel',
+        query: {
+          // Need to explicitly resolve to the local module
+          plugins: [path.resolve(__dirname, 'node_modules/babel-plugin-react-transform')],
+          extra: {
+            'react-transform': [{
+              target: 'react-transform-hmr',
+              imports: ['react'],
+              locals: ['module']
+            }, {
+              target: 'react-transform-catch-errors',
+              imports: ['react', 'redbox-react']
+            }]
+          }
+        }
       }
     }
   };

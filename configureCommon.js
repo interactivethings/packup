@@ -22,7 +22,7 @@ module.exports = function(options) {
     
     // Packup-specific options, not directly used by webpack
     loaders: {
-      js: {test: /\.js$/, exclude: /node_modules/, loaders: ['babel']},
+      js: {test: /\.js$/, exclude: /node_modules/, loader: 'babel'},
       scss: {test: /\.scss$/, loader: sassLoader('style!css!sass')},
       css: {test: /\.css$/, loader: 'style!css'},
 
