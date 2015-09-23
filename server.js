@@ -6,11 +6,14 @@ var request = require('request');
 var webpack = require('webpack');
 var devMiddleware = require('webpack-dev-middleware');
 var hotMiddleware = require('webpack-hot-middleware');
+var historyApiFallback = require('connect-history-api-fallback');
 
 module.exports = function server(config) {
   var app = express();
   var compiler = webpack(config);
 
+  app.use(historyApiFallback());
+  
   app.use(devMiddleware(compiler, {
       publicPath: config.output.publicPath,
       contentBase: config.output.contentBase,
@@ -27,16 +30,6 @@ module.exports = function server(config) {
     }));
 
   app.use(hotMiddleware(compiler));
-
-  // Support for pushState URLs
-  app.get('*', function(req, res, next) {
-    var ext = path.extname(req.url);
-    if ((ext === '' || ext === '.html') && req.url !== '/') {
-      req.pipe(request(req.protocol + '://' + req.hostname + ':' + config.port + '/index.html')).pipe(res);
-    } else {
-      next();
-    }
-  });
 
   app.listen(config.port, '0.0.0.0', function (err, result) {
     if (err) {
