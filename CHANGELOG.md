@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.7.0
+
+- Upgrade to Babel 6
+
 ## v0.6.0
 
 - Removed SASS support, switch to CSS Modules
