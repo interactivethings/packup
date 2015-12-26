@@ -1,6 +1,6 @@
 {
   "name": "packup",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "A no-config dev server for modern web apps",
   "keywords": [
     "react",
