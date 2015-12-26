@@ -3,6 +3,7 @@
 ## v0.6.0
 
 - Removed SASS support, switch to CSS Modules
+- Removed react-hot-loader in favor of react-transform
 
 ## v0.5.0
 
