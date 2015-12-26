@@ -2,7 +2,6 @@
 
 var path = require('path');
 var express = require('express');
-var request = require('request');
 var webpack = require('webpack');
 var devMiddleware = require('webpack-dev-middleware');
 var hotMiddleware = require('webpack-hot-middleware');
@@ -29,13 +28,13 @@ module.exports = function server(config) {
       }
     }));
 
-  app.use(hotMiddleware(compiler));
+  app.use(hotMiddleware(compiler, {log: false}));
 
   app.listen(config.port, '0.0.0.0', function (err, result) {
     if (err) {
       return console.error(err);
     }
 
-    console.log('Listening at localhost:' + config.port);
+    console.log('Listening at http://0.0.0.0:' + config.port);
   });
 };

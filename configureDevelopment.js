@@ -8,13 +8,13 @@ module.exports = function(options) {
   if (typeof options.entry === 'object') {
     Object.keys(options.entry).forEach(function(key) {
       entry[key] = [
-        'webpack-hot-middleware/client',
+        'webpack-hot-middleware/client?noInfo=true&reload=true',
         options.entry[key]
       ];
     });
   } else {
     entry.app = [
-      'webpack-hot-middleware/client',
+      'webpack-hot-middleware/client?noInfo=true&reload=true',
       options.entry
     ];
   }
