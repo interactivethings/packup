@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.6.0
+
+- Removed SASS support, switch to CSS Modules
+
 ## v0.5.0
 
 - Replaced webpack-dev-server with Express and webpack-hot-middleware
