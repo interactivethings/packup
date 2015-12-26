@@ -50,14 +50,16 @@ module.exports = function(options) {
           // Need to explicitly resolve to the local module
           plugins: [path.resolve(__dirname, 'node_modules/babel-plugin-react-transform')],
           extra: {
-            'react-transform': [{
-              target: 'react-transform-hmr',
-              imports: ['react'],
-              locals: ['module']
-            }, {
-              target: 'react-transform-catch-errors',
-              imports: ['react', 'redbox-react']
-            }]
+            'react-transform': {
+              'transforms': [{
+                transform: path.resolve(__dirname, 'node_modules/react-transform-hmr'),
+                imports: ['react'],
+                locals: ['module']
+              }, {
+                transform: path.resolve(__dirname, 'node_modules/react-transform-catch-errors'),
+                imports: ['react', path.resolve(__dirname, 'node_modules/redbox-react')]
+              }]
+            }
           }
         }
       }
