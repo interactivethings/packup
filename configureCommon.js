@@ -1,15 +1,7 @@
 var path = require('path');
 var fs = require('fs');
-var bourbon = require('node-bourbon');
 
 module.exports = function(options) {
-  function sassLoader(loadersDef) {
-    return loadersDef + '?includePaths[]=' + [
-      path.resolve(options.root, 'node_modules'),
-      options.root,
-      bourbon.includePaths
-    ].join('&includePaths[]=');
-  }
 
   return {
     resolve: {
@@ -23,14 +15,13 @@ module.exports = function(options) {
     // Packup-specific options, not directly used by webpack
     loaders: {
       js: {test: /\.js$/, exclude: /node_modules/, loaders: ['babel']},
-      scss: {test: /\.scss$/, loader: sassLoader('style!css!sass')},
-      css: {test: /\.css$/, loader: 'style!css'},
+      css: {test: /\.css$/, loader: 'style!css?modules&localIdentName=[name]-[local]-[hash:base64:5]'},
 
       // Images
       png: {test: /\.png$/, loader: 'url?limit=8192&mimetype=image/png'},
       gif: {test: /\.gif$/, loader: 'url?limit=8192&mimetype=image/gif'},
-      jpg: {test: /\.jpe?g$/, loader: 'file?mimetype=image/jpg'},
-      svg: {test: /\.svg$/, loader: 'url?limit=8192&mimetype=image/svg+xml'},
+      jpg: {test: /\.jpe?g$/, loader: 'file'},
+      svg: {test: /\.svg$/, loader: 'file'},
 
       // Fonts
       woff2: {test: /\.woff2$/, loader: 'url?limit=8192&mimetype=application/font-woff2'},
