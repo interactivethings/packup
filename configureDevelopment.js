@@ -47,19 +47,19 @@ module.exports = function(options) {
       js: {
         loader: 'babel',
         query: {
-          presets: ['es2015', 'react', 'stage-2'],
+          presets: ['es2015', 'react', 'stage-2'].map((preset) => require.resolve(`babel-preset-${preset}`)),
           // Need to explicitly resolve to the local module
           plugins: [
             [
-              path.resolve(__dirname, 'node_modules/babel-plugin-react-transform'),
+              require.resolve('babel-plugin-react-transform'),
               {
                 transforms: [{
-                  transform: path.resolve(__dirname, 'node_modules/react-transform-hmr'),
-                  imports: ['react'],
+                  transform: require.resolve('react-transform-hmr'),
+                  imports: [require.resolve('react')],
                   locals: ['module']
                 }, {
-                  transform: path.resolve(__dirname, 'node_modules/react-transform-catch-errors'),
-                  imports: ['react', path.resolve(__dirname, 'node_modules/redbox-react')]
+                  transform: require.resolve('react-transform-catch-errors'),
+                  imports: [require.resolve('react'), require.resolve('redbox-react')]
                 }]
               }
             ]
